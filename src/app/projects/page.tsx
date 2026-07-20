@@ -33,7 +33,7 @@ export default function ProjectsPage() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PROJECTS.map((project, i) => (
+          {PROJECTS.map((project) => (
             <SpotlightCard key={project.id} className="p-8">
               <div className="mb-6 flex-1">
                 <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-[#FFD700] transition-colors">{project.title}</h2>
