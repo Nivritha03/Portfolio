@@ -231,28 +231,31 @@ export function Hero() {
               </div>
 
               {/* Profile Image inside card */}
-              <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-white/10 mb-6 shadow-2xl">
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-white/20 mb-6 shadow-2xl bg-[#1a1a1a]">
                 <Image
-                  src="/profile.jpg" // User's uploaded picture path
+                  src="/profile.jpg"
                   alt="Nivritha Polaboina"
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 350px"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-4 right-4">
+                {/* Subtle gradient at bottom only to keep face 100% bright and clear */}
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 right-3 z-10">
                   <div className="flex justify-between items-end">
                     <div>
-                      <p className="text-xs text-gray-400 font-mono mb-1">STATUS</p>
-                      <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                        <span className="text-sm text-white font-medium">ONLINE</span>
+                      <p className="text-[10px] text-gray-300 font-mono mb-0.5">STATUS</p>
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="text-xs text-white font-mono font-semibold">ONLINE</span>
                       </div>
                     </div>
                     {/* Simulated barcode */}
-                    <div className="flex gap-[2px] h-6 opacity-50">
+                    <div className="flex gap-[2px] h-5 opacity-60">
                       {[...Array(12)].map((_, i) => (
                         <div key={i} className="bg-white h-full" style={{ width: ((i * 37) % 4) + 1 + 'px' }} />
                       ))}
