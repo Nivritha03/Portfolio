@@ -19,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth h-full antialiased">
+    <html lang="en" className="dark antialiased">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable} font-sans min-h-full flex flex-col bg-black text-white overflow-x-hidden relative`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable} font-sans min-h-screen flex flex-col bg-black text-white overflow-x-hidden relative`}
       >
         <div className="bg-noise absolute inset-0 w-full h-full position-fixed pointer-events-none" style={{ position: 'fixed' }} />
         <CustomCursor />

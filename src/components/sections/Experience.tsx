@@ -93,6 +93,11 @@ export function Experience() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <div className="mt-32 border-t border-white/10 pt-12 text-center text-gray-500 font-mono text-xs relative z-10 max-w-5xl mx-auto px-4">
+        <p>© {new Date().getFullYear()} Nivritha Polaboina. Architected with Next.js, Framer Motion & TailwindCSS.</p>
+      </div>
     </section>
   );
 }
