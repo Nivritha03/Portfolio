@@ -34,7 +34,7 @@ export function Navbar() {
     { name: "Projects", href: "#projects" },
     { name: "Patents", href: "#patents" },
     { name: "Terminal", href: "#terminal" },
-    { name: "Timeline", href: "#experience" },
+    { name: "Experience", href: "#experience" },
   ];
 
   return (
