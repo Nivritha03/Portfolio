@@ -13,10 +13,10 @@ function ProjectCard({ project, i, progress, range, targetScale }: { project: Pr
   const scale = useTransform(progress, range, [1, targetScale]);
   
   return (
-    <div ref={containerRef} className="h-screen flex items-center justify-center sticky top-0">
+    <div ref={containerRef} className="min-h-[85vh] py-8 md:py-0 md:h-screen flex items-center justify-center sticky top-0">
       <motion.div 
         style={{ scale, top: `calc(-5vh + ${i * 25}px)` }} 
-        className="relative flex flex-col w-full max-w-4xl p-8 rounded-3xl origin-top border border-white/10 bg-[#111111] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
+        className="relative flex flex-col w-full max-w-4xl p-6 md:p-8 rounded-3xl origin-top border border-white/10 bg-[#111111] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
       >
         <h2 className="text-4xl font-bold text-white mb-2">{project.title}</h2>
         <h3 className="text-xl text-[#FFD700] font-mono mb-8">{project.subtitle}</h3>

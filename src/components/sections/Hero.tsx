@@ -76,9 +76,9 @@ export function Hero() {
             <span className="text-sm font-medium text-white/80 uppercase tracking-widest font-mono">Available for impact</span>
           </motion.div>
 
-          <div className="overflow-hidden mb-2">
+          <div className="overflow-hidden mb-2 w-full">
             <motion.h1 
-              className="text-6xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter text-white font-space leading-[0.9]"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter text-white font-space leading-[0.95] break-words"
               variants={heroTextReveal}
               initial="hidden"
               animate="visible"
@@ -86,9 +86,9 @@ export function Hero() {
               NIVRITHA
             </motion.h1>
           </div>
-          <div className="overflow-hidden mb-8">
+          <div className="overflow-hidden mb-8 w-full">
             <motion.h1 
-              className="text-6xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#F59E0B] to-white font-space leading-[0.9]"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#F59E0B] to-white font-space leading-[0.95] break-words"
               variants={heroTextReveal}
               initial="hidden"
               animate="visible"
@@ -198,7 +198,7 @@ export function Hero() {
         {/* Right Side: Glassmorphic ID Card */}
         <motion.div style={{ y: y2, opacity }} className="flex-1 w-full flex justify-center lg:justify-end relative z-10 mb-20 lg:mb-0">
           <motion.div 
-            className="relative w-[300px] md:w-[350px] aspect-[3/4] rounded-2xl border border-white/20 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-2xl shadow-[0_0_50px_rgba(255,215,0,0.15)] overflow-hidden group"
+            className="relative w-full max-w-[320px] sm:w-[350px] aspect-[3/4] rounded-2xl border border-white/20 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-2xl shadow-[0_0_50px_rgba(255,215,0,0.15)] overflow-hidden group"
             initial={{ opacity: 0, rotateY: 30, x: 50 }}
             animate={{ opacity: 1, rotateY: 0, x: 0 }}
             transition={{ duration: 1, type: "spring", bounce: 0.4, delay: 0.5 }}

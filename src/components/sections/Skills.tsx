@@ -47,9 +47,9 @@ export function Skills() {
         {/* True Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[250px]">
           
-          {/* Main AI Tile - Spans 2x2 */}
+          {/* Main AI Tile - Spans 2x2 on desktop, auto-height on mobile */}
           <motion.div 
-            className="col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative p-8 rounded-3xl border border-white/10 bg-[#111111] hover:border-[#FFD700]/50 transition-all duration-500 overflow-hidden group"
+            className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2 relative p-6 md:p-8 rounded-3xl border border-white/10 bg-[#111111] hover:border-[#FFD700]/50 transition-all duration-500 overflow-hidden group"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
