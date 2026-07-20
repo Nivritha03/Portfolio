@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export function Navbar() {
@@ -48,17 +47,17 @@ export function Navbar() {
     >
       <div className="w-full max-w-7xl flex items-center justify-between px-6 py-3 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:border-[#FFD700]/30 transition-all duration-300">
         
-        {/* Brand Logo */}
-        <Link href="#hero" className="flex items-center gap-3 group">
+        {/* Brand Logo (Static) */}
+        <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#FFD700] to-[#F59E0B] p-[1px] flex items-center justify-center shadow-[0_0_15px_rgba(255,215,0,0.3)]">
-            <div className="w-full h-full rounded-full bg-black flex items-center justify-center font-space font-bold text-sm text-[#FFD700] group-hover:bg-[#FFD700] group-hover:text-black transition-colors duration-300">
+            <div className="w-full h-full rounded-full bg-black flex items-center justify-center font-space font-bold text-sm text-[#FFD700]">
               N
             </div>
           </div>
-          <span className="font-space font-bold text-white tracking-wider text-sm hidden sm:inline-block group-hover:text-[#FFD700] transition-colors">
-            NIVRITHA<span className="text-[#FFD700]">.AI</span>
+          <span className="font-space font-bold text-white tracking-wider text-sm hidden sm:inline-block">
+            NIVRITHA
           </span>
-        </Link>
+        </div>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/5">
