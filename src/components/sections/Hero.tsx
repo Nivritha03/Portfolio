@@ -111,7 +111,7 @@ export function Hero() {
           </div>
 
           <motion.p 
-            className="text-base md:text-lg text-gray-500 max-w-xl leading-relaxed mb-12"
+            className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed mb-8"
             variants={slideUp}
             initial="hidden"
             animate="visible"
@@ -119,6 +119,28 @@ export function Hero() {
           >
             Architecting intelligent systems and generative AI applications. Focused on highly scalable backend infrastructures and premium frontend experiences.
           </motion.p>
+
+          {/* Live Metrics Grid */}
+          <motion.div 
+            className="grid grid-cols-3 gap-4 mb-10 w-full max-w-lg p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md"
+            variants={slideUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.35 }}
+          >
+            <div>
+              <p className="text-2xl md:text-3xl font-bold font-space text-[#FFD700]">12+</p>
+              <p className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">Built Projects</p>
+            </div>
+            <div className="border-l border-white/10 pl-4">
+              <p className="text-2xl md:text-3xl font-bold font-space text-[#F59E0B]">1</p>
+              <p className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">AI Patent</p>
+            </div>
+            <div className="border-l border-white/10 pl-4">
+              <p className="text-2xl md:text-3xl font-bold font-space text-white">5+</p>
+              <p className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">Tech Stacks</p>
+            </div>
+          </motion.div>
 
           <motion.div 
             className="flex flex-col sm:flex-row gap-6 items-center w-full sm:w-auto"
@@ -185,6 +207,12 @@ export function Hero() {
           >
             {/* Glossy reflection */}
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none transform -translate-x-full group-hover:translate-x-full" />
+
+            {/* Cyberpunk HUD Corner Accents */}
+            <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-[#FFD700] z-20 pointer-events-none" />
+            <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-[#FFD700] z-20 pointer-events-none" />
+            <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-[#FFD700] z-20 pointer-events-none" />
+            <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-[#FFD700] z-20 pointer-events-none" />
 
             <div className="p-6 h-full flex flex-col justify-between">
               {/* Header */}
