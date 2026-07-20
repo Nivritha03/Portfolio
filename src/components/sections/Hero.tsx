@@ -61,7 +61,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-12 w-full max-w-7xl mx-auto mt-20 lg:mt-0 gap-16">
+      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-12 w-full max-w-7xl mx-auto pt-36 lg:pt-40 pb-16 gap-16">
         
         {/* Left Side: Typography */}
         <motion.div style={{ y: y1, opacity }} className="flex-1 flex flex-col items-start text-left z-20">
@@ -280,8 +280,8 @@ export function Hero() {
       
       {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#FFD700]/50"
-        initial={{ opacity: 0, y: -20 }}
+        className="relative z-10 pb-8 flex flex-col items-center gap-2 text-[#FFD700]/50"
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 1 }}
       >

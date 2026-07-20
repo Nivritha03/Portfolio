@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import { Navbar } from "@/components/ui/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Skills } from "@/components/sections/Skills";
@@ -7,6 +10,14 @@ import { TerminalSection } from "@/components/sections/TerminalSection";
 import { Experience } from "@/components/sections/Experience";
 
 export default function Home() {
+  useEffect(() => {
+    // Reset scroll to top on initial page load
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col w-full bg-black">
       <Navbar />

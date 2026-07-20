@@ -66,6 +66,15 @@ export function Navbar() {
             <a
               key={item.name}
               href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                const targetId = item.href.replace("#", "");
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                  targetEl.scrollIntoView({ behavior: "smooth" });
+                  window.history.replaceState(null, "", window.location.pathname);
+                }
+              }}
               className="px-4 py-1.5 rounded-full text-xs font-mono text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
             >
               {item.name}
