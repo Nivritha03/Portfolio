@@ -42,18 +42,18 @@ export const PROJECTS = [
     color: "#FFD700"
   },
   {
-    id: "structai",
-    title: "StructAI",
-    subtitle: "Bridge Failure Prediction System",
-    techStack: ["TypeScript", "Satellite Imagery", "Azure AI Vision", "Azure Machine Learning"],
+    id: "collab-sphere",
+    title: "Collab-Sphere Digital Whiteboard",
+    subtitle: "Java Full Stack Real-Time Application",
+    techStack: ["TypeScript", "Java", "Spring Boot", "React", "WebSockets"],
     features: [
-      "AI-powered predictive maintenance using satellite imagery.",
-      "Detects micro-deformations to estimate structural risk accurately.",
-      "Utilizes Azure AI Vision for automated image analysis."
+      "Interactive real-time digital whiteboard application.",
+      "Combines a robust Java Spring Boot backend with a React frontend.",
+      "Low-latency WebSocket synchronization for seamless team collaboration."
     ],
-    github: "https://github.com/Nivritha03/StructAI",
+    github: "https://github.com/Nivritha03/Collab-Sphere_Digital-Whiteboard",
     liveDemo: "#",
-    color: "#F59E0B"
+    color: "#FFD700"
   },
   {
     id: "marketmind",
@@ -112,18 +112,18 @@ export const PROJECTS = [
     color: "#F59E0B"
   },
   {
-    id: "collab-sphere",
-    title: "Collab-Sphere Digital Whiteboard",
-    subtitle: "Java Full Stack Real-Time Application",
-    techStack: ["TypeScript", "Java", "Spring Boot", "React", "WebSockets"],
+    id: "structai",
+    title: "StructAI",
+    subtitle: "Bridge Failure Prediction System",
+    techStack: ["TypeScript", "Satellite Imagery", "Azure AI Vision", "Azure Machine Learning"],
     features: [
-      "Interactive real-time digital whiteboard application.",
-      "Combines a robust Java Spring Boot backend with a React frontend.",
-      "Low-latency WebSocket synchronization for seamless team collaboration."
+      "AI-powered predictive maintenance using satellite imagery.",
+      "Detects micro-deformations to estimate structural risk accurately.",
+      "Utilizes Azure AI Vision for automated image analysis."
     ],
-    github: "https://github.com/Nivritha03/Collab-Sphere_Digital-Whiteboard",
+    github: "https://github.com/Nivritha03/StructAI",
     liveDemo: "#",
-    color: "#FFD700"
+    color: "#F59E0B"
   },
   {
     id: "synthesia",
