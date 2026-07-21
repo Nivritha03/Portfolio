@@ -12,7 +12,7 @@ export const EXPERIENCE = [
   },
   {
     id: 2,
-    role: "MERN Stack Intern",
+    role: "Full Stack Intern (MERN)",
     company: "Webstack Academy",
     location: "Hyderabad, Telangana",
     period: "Dec 2025 - Jan 2026",
