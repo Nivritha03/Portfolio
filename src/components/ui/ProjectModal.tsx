@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PROJECTS } from "@/constants/projects";
-import { X, ExternalLink, Code2, Activity, BarChart, Server } from "lucide-react";
+import { X, ExternalLink, Code2, Activity, BarChart, Server, Play } from "lucide-react";
 import { useEffect } from "react";
 
 type ProjectType = typeof PROJECTS[0];
