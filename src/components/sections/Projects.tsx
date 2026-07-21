@@ -16,58 +16,64 @@ function ProjectCard({ project, i, progress, range, targetScale }: { project: Pr
     <div ref={containerRef} className="min-h-[85vh] py-8 md:py-0 md:h-screen flex items-center justify-center sticky top-0">
       <motion.div 
         style={{ scale, top: `calc(-5vh + ${i * 25}px)` }} 
-        className="relative flex flex-col w-full max-w-4xl p-6 md:p-8 rounded-3xl origin-top border border-white/10 bg-[#111111] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
+        className="relative flex flex-col w-full max-w-4xl p-8 md:p-12 rounded-[2.5rem] origin-top border border-white/10 bg-[#0a0a0a] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] group"
       >
-        <h2 className="text-4xl font-bold text-white mb-2">{project.title}</h2>
-        <h3 className="text-xl text-[#FFD700] font-mono mb-8">{project.subtitle}</h3>
+        {/* Animated gradient background based on project color */}
+        <div 
+          className="absolute -top-40 -right-40 w-96 h-96 rounded-full blur-[100px] opacity-20 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none" 
+          style={{ backgroundColor: project.color }}
+        />
+        <div 
+          className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] opacity-10 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none" 
+          style={{ backgroundColor: project.color }}
+        />
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="w-full lg:w-1/2">
-            <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/80 to-transparent z-10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500" />
-              
-              <div className="absolute inset-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#111111] to-black flex flex-col items-center justify-center">
-                <span className="text-gray-600 font-mono text-2xl animate-pulse mb-4">Live Preview</span>
-                <div className="absolute inset-4 overflow-hidden opacity-20 pointer-events-none text-left flex items-start justify-start">
-                  <pre className="text-xs text-[#FFD700] font-mono leading-relaxed p-4">
-                    {`const config = {
-  project: "${project.id}",
-  status: "active",
-  tech: [${project.techStack.map((t: string) => `"${t}"`).join(', ')}]
-};
-
-async function deploy() {
-  await App.init();
-  console.log("Deployed successfully");
-}`}
-                  </pre>
-                </div>
-              </div>
-            </div>
+        {/* Large background watermark */}
+        <div className="absolute top-4 right-8 text-[150px] font-bold font-space text-white/[0.02] pointer-events-none select-none leading-none">
+          {String(i + 1).padStart(2, '0')}
+        </div>
+        
+        <div className="relative z-10 flex flex-col h-full">
+          <div className="mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">{project.title}</h2>
+            <h3 className="text-xl font-mono" style={{ color: project.color }}>{project.subtitle}</h3>
           </div>
-          
-          <div className="w-full lg:w-1/2 flex flex-col justify-between">
-            <ul className="space-y-4 mb-8">
+
+          <div className="flex flex-col gap-8 flex-grow">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {project.features.map((feature: string, idx: number) => (
-                <li key={idx} className="text-gray-300 flex items-start gap-3">
-                  <span className="text-[#FFD700] mt-1 text-lg">▹</span>
-                  <span className="text-left text-sm leading-relaxed">{feature}</span>
+                <li key={idx} className="relative overflow-hidden group/item p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/[0.07]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
+                  <div className="relative z-10 flex items-start gap-4">
+                    <span className="mt-1 text-xl leading-none" style={{ color: project.color }}>▹</span>
+                    <span className="text-left text-sm text-gray-300 leading-relaxed font-medium">{feature}</span>
+                  </div>
                 </li>
               ))}
             </ul>
             
-            <div>
-              <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mt-auto pt-8 border-t border-white/10 relative">
+              {/* Subtle line glow */}
+              <div className="absolute top-0 left-0 w-1/3 h-[1px]" style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }} />
+              
+              <div className="flex flex-wrap gap-2 flex-1">
                 {project.techStack.map((tech: string, i: number) => (
-                  <span key={i} className="px-3 py-1 text-xs font-mono rounded-full bg-white/5 text-[#F59E0B] border border-white/10">
+                  <span 
+                    key={i} 
+                    className="px-4 py-2 text-xs font-mono rounded-xl bg-black/50 text-gray-300 border border-white/10 backdrop-blur-md hover:border-white/30 transition-colors cursor-default"
+                  >
                     {tech}
                   </span>
                 ))}
               </div>
-              <div className="flex gap-4">
-                <a href={project.github} className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-colors text-sm">View Source</a>
+              <div className="flex gap-4 shrink-0">
+                <a href={project.github} target="_blank" rel="noreferrer" className="px-8 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all text-sm backdrop-blur-md">
+                  View Source
+                </a>
                 {project.liveDemo !== "#" && (
-                  <a href={project.liveDemo} className="px-6 py-3 rounded-full bg-[#FFD700] text-black font-bold hover:scale-105 transition-transform text-sm shadow-[0_0_20px_rgba(255,215,0,0.2)]">Live Demo</a>
+                  <a href={project.liveDemo} target="_blank" rel="noreferrer" className="px-8 py-3.5 rounded-xl text-black font-bold hover:scale-[1.02] transition-all text-sm shadow-lg hover:shadow-xl" style={{ backgroundColor: project.color, boxShadow: `0 4px 20px ${project.color}40` }}>
+                    Live Demo
+                  </a>
                 )}
               </div>
             </div>

@@ -32,6 +32,7 @@ export function Navbar() {
     { name: "Overview", href: "#hero" },
     { name: "Arsenal", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "All Projects", href: "/projects" },
     { name: "Patents", href: "#patents" },
     { name: "Terminal", href: "#terminal" },
     { name: "Experience", href: "#experience" },
@@ -39,11 +40,15 @@ export function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMobileMenuOpen(false);
-    const targetId = href.replace("#", "");
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      targetEl.scrollIntoView({ behavior: "smooth" });
-      window.history.replaceState(null, "", window.location.pathname);
+    if (href.startsWith("#")) {
+      const targetId = href.replace("#", "");
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth" });
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    } else {
+      window.location.href = href;
     }
   };
 
