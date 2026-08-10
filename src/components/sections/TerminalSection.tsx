@@ -37,10 +37,15 @@ export function TerminalSection() {
     },
   ]);
 
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        top: containerRef.current.scrollHeight,
+        behavior: "smooth"
+      });
+    }
   }, [logs]);
 
   const handleRunCommand = (cmdStr: string) => {
@@ -155,7 +160,7 @@ export function TerminalSection() {
           </div>
 
           {/* Terminal Logs & Input */}
-          <div className="p-6 h-[320px] overflow-y-auto space-y-4 text-xs md:text-sm">
+          <div ref={containerRef} className="p-6 h-[320px] overflow-y-auto space-y-4 text-xs md:text-sm">
             {logs.map((log, idx) => (
               <div key={idx} className="space-y-2">
                 <div className="flex items-center gap-2 text-gray-400">
@@ -183,7 +188,6 @@ export function TerminalSection() {
                 className="flex-1 bg-transparent border-none outline-none text-white font-mono placeholder:text-gray-600 focus:ring-0"
               />
             </form>
-            <div ref={bottomRef} />
           </div>
         </motion.div>
 
