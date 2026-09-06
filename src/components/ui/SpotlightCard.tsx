@@ -7,45 +7,31 @@ interface SpotlightCardProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
   className?: string;
   spotlightColor?: string;
+  borderColor?: string;
 }
 
 export function SpotlightCard({
   children,
   className = "",
-  spotlightColor = "rgba(255, 215, 0, 0.15)",
+  spotlightColor = "rgba(255, 215, 0, 0.12)",
+  borderColor = "rgba(255, 215, 0, 0.35)",
   ...props
 }: SpotlightCardProps) {
   const divRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [opacity, setOpacity] = useState(0);
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!divRef.current) return;
-
     const rect = divRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    setPosition({ x, y });
-
-    // Calculate 3D tilt angles
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -6; // max 6 deg tilt
-    const rotateY = ((x - centerX) / centerX) * 6;
-
-    setRotate({ x: rotateX, y: rotateY });
+    setPosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
   };
 
-  const handleMouseEnter = () => {
-    setOpacity(1);
-  };
-
-  const handleMouseLeave = () => {
-    setOpacity(0);
-    setRotate({ x: 0, y: 0 });
-  };
+  const handleMouseEnter = () => setOpacity(1);
+  const handleMouseLeave = () => setOpacity(0);
 
   return (
     <motion.div
@@ -53,24 +39,34 @@ export function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      animate={{
-        rotateX: rotate.x,
-        rotateY: rotate.y,
-      }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      style={{ transformStyle: "preserve-3d" }}
-      className={`relative overflow-hidden rounded-3xl border border-white/10 bg-[#111111] transition-colors duration-300 hover:border-[#FFD700]/40 ${className}`}
+      whileHover={{ y: -4, transition: { duration: 0.25, ease: "easeOut" } }}
+      className={`relative overflow-hidden rounded-3xl border border-white/10 bg-[#0e0e11]/90 backdrop-blur-xl transition-colors duration-300 ${className}`}
       {...props}
     >
-      {/* Dynamic Cursor Spotlight Radial Mask */}
+      {/* Ambient Radial Spotlight Border Mask */}
       <div
-        className="pointer-events-none absolute -inset-px transition-opacity duration-300"
+        className="pointer-events-none absolute -inset-px rounded-[inherit] transition-opacity duration-300"
         style={{
           opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 40%)`,
+          background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, ${borderColor}, transparent 60%)`,
+          padding: "1px",
+          WebkitMask:
+            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          WebkitMaskComposite: "xor",
+          maskComposite: "exclude",
         }}
       />
-      {/* Content wrapper */}
+
+      {/* Surface Ambient Glow */}
+      <div
+        className="pointer-events-none absolute -inset-px rounded-[inherit] transition-opacity duration-300"
+        style={{
+          opacity,
+          background: `radial-gradient(500px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 50%)`,
+        }}
+      />
+
+      {/* Card Content Container */}
       <div className="relative z-10 h-full">{children}</div>
     </motion.div>
   );

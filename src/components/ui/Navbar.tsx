@@ -108,10 +108,18 @@ export function Navbar() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
               </a>
             </div>
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 font-mono text-[11px] text-gray-400">
-              <span className="text-[#FFD700]">IST</span>
-              <span>{timeStr || "18:00:00"}</span>
-            </div>
+            {/* Cmd+K Quick Launcher Button */}
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-command-bar"))}
+              className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-gray-300 text-xs font-mono transition-all"
+              title="Open Command Launcher (Cmd+K)"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+              <span className="text-gray-400">Search</span>
+              <kbd className="px-1.5 py-0.5 text-[10px] rounded bg-white/10 border border-white/10 text-gray-300 font-sans">
+                ⌘K
+              </kbd>
+            </button>
 
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs">
               <span className="relative flex h-2 w-2">

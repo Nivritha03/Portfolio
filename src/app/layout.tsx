@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { FloatingSocials } from "@/components/ui/FloatingSocials";
+import { CommandBar } from "@/components/ui/CommandBar";
 
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const syne = Syne({ subsets: ["latin"], variable: "--font-space" });
@@ -26,6 +27,7 @@ export default function RootLayout({
       >
         <div className="bg-noise absolute inset-0 w-full h-full position-fixed pointer-events-none" style={{ position: 'fixed' }} />
         <CustomCursor />
+        <CommandBar />
         <FloatingSocials />
         <SmoothScroll>
           {children}
