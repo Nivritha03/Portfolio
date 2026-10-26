@@ -4,13 +4,19 @@ import { motion } from "framer-motion";
 import { PROJECTS } from "@/constants/projects";
 import { X, ExternalLink, Code2, Activity, BarChart, Server, Play } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { useLenis } from "lenis/react";
 
 type ProjectType = typeof PROJECTS[0];
 
 export function ProjectModal({ project, onClose }: { project: ProjectType, onClose: () => void }) {
   const modalRef = useRef<HTMLDivElement>(null);
+  const lenis = useLenis();
   
   useEffect(() => {
+    // Pause Lenis smooth scroll on the background page while modal is open
+    lenis?.stop();
+
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     // Focus the modal content container so keypad / arrow keys scroll it immediately
@@ -24,67 +30,81 @@ export function ProjectModal({ project, onClose }: { project: ProjectType, onClo
         return;
       }
 
-      // Handle arrow keys, PageUp, PageDown, Home, End, Space when modal is active
+      const target = e.target as HTMLElement | null;
+      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) {
+        return;
+      }
+
       if (!modalRef.current) return;
-      const scrollStep = 80;
-      const pageStep = 400;
+      const scrollStep = 90;
+      const pageStep = 450;
 
       switch (e.key) {
         case "ArrowDown":
           e.preventDefault();
+          e.stopPropagation();
           modalRef.current.scrollBy({ top: scrollStep, behavior: "smooth" });
           break;
         case "ArrowUp":
           e.preventDefault();
+          e.stopPropagation();
           modalRef.current.scrollBy({ top: -scrollStep, behavior: "smooth" });
           break;
         case "PageDown":
         case " ":
           e.preventDefault();
+          e.stopPropagation();
           modalRef.current.scrollBy({ top: pageStep, behavior: "smooth" });
           break;
         case "PageUp":
           e.preventDefault();
+          e.stopPropagation();
           modalRef.current.scrollBy({ top: -pageStep, behavior: "smooth" });
           break;
         case "Home":
           e.preventDefault();
+          e.stopPropagation();
           modalRef.current.scrollTo({ top: 0, behavior: "smooth" });
           break;
         case "End":
           e.preventDefault();
+          e.stopPropagation();
           modalRef.current.scrollTo({ top: modalRef.current.scrollHeight, behavior: "smooth" });
           break;
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown, { capture: true });
 
     return () => {
       clearTimeout(timer);
-      document.body.style.overflow = "auto";
-      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      lenis?.start();
+      window.removeEventListener("keydown", handleKeyDown, { capture: true });
     };
-  }, [onClose]);
+  }, [onClose, lenis]);
 
   return (
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 overscroll-contain"
+      data-lenis-prevent
     >
       <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" onClick={onClose} />
       
       <motion.div 
         ref={modalRef}
         tabIndex={0}
+        data-lenis-prevent
         initial={{ y: 50, opacity: 0, scale: 0.95 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         exit={{ y: 20, opacity: 0, scale: 0.95 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-[#060606] border border-white/10 rounded-3xl shadow-2xl flex flex-col focus:outline-none"
+        className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto overscroll-contain bg-[#060606] border border-white/10 rounded-3xl shadow-2xl flex flex-col focus:outline-none"
         style={{ '--project-color': project.color } as React.CSSProperties}
+        onWheel={(e) => e.stopPropagation()}
       >
         <button 
           onClick={onClose}
