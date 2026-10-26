@@ -19,7 +19,7 @@ export default function ProjectsPage() {
   const [viewMode, setViewMode] = useState<"grid" | "timeline">("grid");
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
 
-  // Filter projects based on category and search query
+  // Filter projects based on category and search query, prioritizing live demos first
   const filteredProjects = useMemo(() => {
     return PROJECTS.filter(project => {
       const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;
@@ -31,6 +31,12 @@ export default function ProjectsPage() {
         (project.category && project.category.toLowerCase().includes(query));
       
       return matchesCategory && matchesSearch;
+    }).sort((a, b) => {
+      const aHasLive = Boolean(a.liveDemo && a.liveDemo !== "#");
+      const bHasLive = Boolean(b.liveDemo && b.liveDemo !== "#");
+      if (aHasLive && !bHasLive) return -1;
+      if (!aHasLive && bHasLive) return 1;
+      return 0;
     });
   }, [selectedCategory, searchQuery]);
 
