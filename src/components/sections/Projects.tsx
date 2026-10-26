@@ -14,6 +14,7 @@ import {
   Activity,
   Layers,
   ArrowUpRight,
+  Code2,
 } from "lucide-react";
 
 type ProjectType = (typeof PROJECTS)[0];
@@ -221,16 +222,53 @@ export function Projects() {
                   ))}
                 </div>
 
-                {/* Bottom Tech Pills */}
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10 mt-auto">
-                  {project.techStack.slice(0, 3).map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2.5 py-1 text-[11px] font-mono rounded-lg bg-white/5 text-gray-300 border border-white/10"
-                    >
-                      {tech}
+                {/* Bottom Tech Pills & Direct Links */}
+                <div className="pt-4 border-t border-white/10 mt-auto flex flex-col gap-3">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.techStack.slice(0, 3).map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2.5 py-1 text-[11px] font-mono rounded-lg bg-white/5 text-gray-300 border border-white/10"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1">
+                    <span className="text-[11px] font-mono text-gray-500 group-hover:text-gray-300 transition-colors flex items-center gap-1">
+                      Details <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </span>
-                  ))}
+
+                    <div className="flex items-center gap-2">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-gray-400 hover:text-white transition-all hover:scale-105"
+                          title="View GitHub Repository"
+                        >
+                          <Code2 className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                      {project.liveDemo !== "#" && (
+                        <a
+                          href={project.liveDemo}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-black font-bold text-[11px] transition-transform hover:scale-105"
+                          style={{ backgroundColor: project.color }}
+                          title="Open Live Deployment"
+                        >
+                          <span>Live Demo</span>
+                          <ArrowUpRight className="w-3 h-3" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </SpotlightCard>
             </div>
