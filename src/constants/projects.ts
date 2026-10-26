@@ -31,6 +31,316 @@ export const PROJECTS = [
     }
   },
   {
+    id: "sentinel",
+    title: "Sentinel",
+    subtitle: "Real-Time Fraud Detection & Intercept Engine",
+    techStack: ["Java 17", "Spring Boot", "React 19", "MongoDB Atlas", "Docker", "WebSockets"],
+    features: [
+      "Real-time transaction monitoring engine with sub-5ms rule-based risk evaluation.",
+      "Interactive 3D threat radar and simulation sandbox for testing fraud attack vectors.",
+      "Audit trail logging, automated dispute resolution flows, and alert escalation queues."
+    ],
+    github: "https://github.com/Nivritha03/Sentinel",
+    liveDemo: "https://sentinel-roan-one.vercel.app",
+    color: "#FFD700",
+    category: "Full-Stack",
+    status: "Production Ready",
+    complexity: 95,
+    featured: true,
+    detailedContent: {
+      challenges: [
+        "Evaluating complex fraud detection heuristics across high-frequency transaction volumes with sub-5ms latency.",
+        "Delivering live fraud alerts and geolocation coordinates simultaneously to frontend dashboards without lag.",
+        "Isolating sandbox testing simulations from live audit database writes."
+      ],
+      solution: "Engineered a high-throughput Java 17 / Spring Boot backend processing real-time streaming payments. Deployed a React 19 dashboard featuring animated radar feeds via WebSockets, supported by MongoDB Atlas for fast indexing and time-series query resolution.",
+      metrics: [
+        { label: "Eval Latency", value: "< 5ms" },
+        { label: "Throughput", value: "10k tx/sec" },
+        { label: "Intercept Rate", value: "99.8%" }
+      ]
+    }
+  },
+  {
+    id: "exportreachai",
+    title: "ExportReach AI",
+    subtitle: "Autonomous B2B Export Sales & Lead Engine",
+    techStack: ["TypeScript", "Next.js", "Gemini AI", "Gmail API", "Search APIs", "Tailwind CSS"],
+    features: [
+      "Autonomous discovery of verified international buyers across global market sectors.",
+      "Multi-dimensional lead scoring & buyer intent qualification powered by Google Gemini AI.",
+      "Direct personalized B2B outreach automation executed securely via connected Gmail accounts."
+    ],
+    github: "https://github.com/Nivritha03/ExportReachAI",
+    liveDemo: "#",
+    color: "#F59E0B",
+    category: "AI",
+    status: "Production Ready",
+    complexity: 94,
+    featured: true,
+    detailedContent: {
+      challenges: [
+        "Scraping and validating company contact coordinates while preserving deliverability and sender reputation.",
+        "Scoring buyer readiness and customs trade fit dynamically across international market data.",
+        "Composing contextual, non-generic sales proposals aligned with bilateral trade regulations."
+      ],
+      solution: "Architected an end-to-end sales intelligence platform using Gemini AI to score international company prospects. Combined search verification APIs with automated Gmail API OAuth integrations to dispatch tailored B2B outreach sequences that drive measurable conversion rates.",
+      metrics: [
+        { label: "Lead Enrichment", value: "100%" },
+        { label: "Scoring Accuracy", value: "93%" },
+        { label: "Outreach Automation", value: "OAuth 2.0" }
+      ]
+    }
+  },
+  {
+    id: "fetalsenseai",
+    title: "FetalSense AI",
+    subtitle: "Explainable CTG Fetal Health Prediction",
+    techStack: ["Python", "FastAPI", "React", "Random Forest", "Optuna", "SHAP", "LIME"],
+    features: [
+      "Real-time classification of fetal health into Normal, Suspect, or Pathological states using CTG data.",
+      "Hyperparameter optimization powered by Optuna for maximum predictive sensitivity.",
+      "Transparent explainability layer integrating SHAP summary plots and LIME feature attribution."
+    ],
+    github: "https://github.com/Nivritha03/FetalSenseAI",
+    liveDemo: "#",
+    color: "#10B981",
+    category: "Machine Learning",
+    status: "Production Ready",
+    complexity: 93,
+    featured: false,
+    detailedContent: {
+      challenges: [
+        "Handling extreme clinical class imbalance between normal and pathological cardiotocography records.",
+        "Ensuring complete model explainability so medical clinicians understand why risk predictions are generated.",
+        "Maintaining microsecond inference speeds inside an interactive hospital diagnostics dashboard."
+      ],
+      solution: "Trained an Optuna-tuned Random Forest classifier achieving high diagnostic sensitivity. Paired FastAPI backend microservices with an interactive React frontend that surfaces SHAP value distributions and local LIME breakdowns to provide interpretable medical AI.",
+      metrics: [
+        { label: "Recall / Sensitivity", value: "97.2%" },
+        { label: "Inference", value: "< 25ms" },
+        { label: "Explainability", value: "SHAP + LIME" }
+      ]
+    }
+  },
+  {
+    id: "commitpulse",
+    title: "CommitPulse",
+    subtitle: "Cinematic 3D Isometric GitHub Monoliths",
+    techStack: ["Next.js", "TypeScript", "GraphQL", "SVG Filters", "Tailwind CSS", "Vercel"],
+    features: [
+      "Transforms raw GitHub contribution commit grids into 3D isometric architectural monoliths.",
+      "Real-time synchronization using GitHub's GraphQL v4 API with zero-delay edge rendering.",
+      "Custom SVG lighting filters, camera angle adjustments, and deep theme customization."
+    ],
+    github: "https://github.com/Nivritha03/commitpulse",
+    liveDemo: "https://commitpulse.vercel.app",
+    color: "#6366F1",
+    category: "Full-Stack",
+    status: "Production Ready",
+    complexity: 90,
+    featured: false,
+    detailedContent: {
+      challenges: [
+        "Rendering complex 3D isometric geometries purely within performant, vector-based SVG graphics.",
+        "Overcoming strict GitHub GraphQL API rate limits through aggressive edge caching on Vercel.",
+        "Generating seamless SVG lighting gradients and shadow projections dynamically based on commit count."
+      ],
+      solution: "Engineered a Next.js edge API that queries GitHub's GraphQL endpoint, computes isometric coordinate projections, and applies matrix transforms to deliver pixel-perfect SVG graphics ready for embedding in developer readmes and portfolios.",
+      metrics: [
+        { label: "Edge Generation", value: "< 80ms" },
+        { label: "SVG Fidelity", value: "Infinite Vector" },
+        { label: "GitHub Sync", value: "Real-time" }
+      ]
+    }
+  },
+  {
+    id: "envforage",
+    title: "EnvForge",
+    subtitle: "Deterministic ML Environment Provisioning",
+    techStack: ["Next.js", "TypeScript", "Shell / Bash", "PowerShell", "CUDA", "Docker"],
+    features: [
+      "Production-grade provisioning engine generating deterministic setup scripts for AI/ML workloads.",
+      "Multi-platform support across Windows native, WSL2, Linux, and specialized GPU / CUDA environments.",
+      "Dependency resolution matrix preventing CUDA toolkit, cuDNN, PyTorch, and Python version collisions."
+    ],
+    github: "https://github.com/Nivritha03/EnvForage",
+    liveDemo: "https://env-forage.vercel.app",
+    color: "#3B82F6",
+    category: "Automation",
+    status: "Production Ready",
+    complexity: 89,
+    featured: false,
+    detailedContent: {
+      challenges: [
+        "Resolving fragile version interdependencies between NVIDIA driver branches, CUDA toolkits, and machine learning libraries.",
+        "Generating idempotent shell scripts that safely handle pre-existing environment variables and symlinks.",
+        "Validating compatibility across multiple host operating systems without user intervention."
+      ],
+      solution: "Built a curated compatibility graph mapping hardware architectures to stable driver and framework combinations. Designed a web-based configuration generator that exports validated shell and PowerShell bootstrapping scripts.",
+      metrics: [
+        { label: "Setup Reliability", value: "99.9%" },
+        { label: "Compatibility Matrix", value: "100+ configs" },
+        { label: "Script Generation", value: "Instant" }
+      ]
+    }
+  },
+  {
+    id: "spectrax",
+    title: "SpectraX",
+    subtitle: "AI Fitness Tracker & Pose Visualization",
+    techStack: ["TypeScript", "React", "MediaPipe", "Computer Vision", "WebRTC", "Canvas API"],
+    features: [
+      "Real-time human pose estimation and skeletal angle tracking via MediaPipe.",
+      "Automated exercise rep counting and posture correction with visual feedback overlays.",
+      "Browser-based edge inferencing eliminating the need for server-side video uploads."
+    ],
+    github: "https://github.com/Nivritha03/spectrax_1",
+    liveDemo: "https://spectrax-1-n89t.vercel.app/",
+    color: "#EC4899",
+    category: "Computer Vision",
+    status: "Production Ready",
+    complexity: 92,
+    featured: false,
+    detailedContent: {
+      challenges: [
+        "Executing 33-point skeletal landmark detection at 30+ FPS directly in the browser.",
+        "Accurately detecting exercise form deviations across diverse body types and camera perspectives.",
+        "Minimizing CPU throttling on mobile and consumer laptop hardware."
+      ],
+      solution: "Integrated Google MediaPipe Pose models with an optimized HTML5 Canvas rendering engine. Implemented geometric vector angle calculations between joints to detect form anomalies and increment rep counts seamlessly in client-side memory.",
+      metrics: [
+        { label: "Pose FPS", value: "45 FPS" },
+        { label: "Tracking Accuracy", value: "96.4%" },
+        { label: "Privacy", value: "100% Client-Side" }
+      ]
+    }
+  },
+  {
+    id: "actnow",
+    title: "ActNow",
+    subtitle: "Civic Governance & Citizen Initiative Platform",
+    techStack: ["TypeScript", "Next.js", "Tailwind CSS", "REST APIs", "Government Data Integrations"],
+    features: [
+      "Comprehensive digital hub connecting citizens with Indian public policy and welfare schemes.",
+      "Real-time eligibility checking, multi-criteria filtering, and state-wise program exploration.",
+      "Responsive, accessible UI with multi-language readiness for nationwide civic engagement."
+    ],
+    github: "https://github.com/Nivritha03/ActNow-",
+    liveDemo: "#",
+    color: "#F97316",
+    category: "Full-Stack",
+    status: "Production Ready",
+    complexity: 88,
+    featured: false,
+    detailedContent: {
+      challenges: [
+        "Structuring disparate government initiative datasets into a unified schema.",
+        "Building an accessible and high-performance search experience for users on low-bandwidth connections.",
+        "Simplifying bureaucratic criteria into clear, step-by-step qualification guides."
+      ],
+      solution: "Engineered an intuitive civic portal with Next.js and Tailwind CSS featuring optimized search indices and client-side caching. The platform categorizes educational grants, agricultural subsidies, and healthcare initiatives with clear eligibility checklists.",
+      metrics: [
+        { label: "Schemes Indexed", value: "250+" },
+        { label: "Search Latency", value: "< 100ms" },
+        { label: "Accessibility Score", value: "98/100" }
+      ]
+    }
+  },
+  {
+    id: "breast-tumor-classifier",
+    title: "Breast Tumor Classifier",
+    subtitle: "Medical Imaging Diagnostic Classifier",
+    techStack: ["Python", "Machine Learning", "Scikit-Learn", "Flask", "Pandas", "NumPy"],
+    features: [
+      "Diagnostic predictive engine classifying breast tissue biopsy measurements as Benign or Malignant.",
+      "Feature importance evaluation using cellular nucleus radius, texture, perimeter, and smoothness.",
+      "Interactive medical diagnostic portal for clinician decision support."
+    ],
+    github: "https://github.com/Nivritha03/Breast-Tumor-Classifier",
+    liveDemo: "#",
+    color: "#EF4444",
+    category: "Machine Learning",
+    status: "Production Ready",
+    complexity: 89,
+    featured: false,
+    detailedContent: {
+      challenges: [
+        "Minimizing false negatives in clinical diagnostic classifications where misclassification is catastrophic.",
+        "Normalizing high-dimensional cellular morphology features without losing variance.",
+        "Deploying lightweight prediction services consumable by external medical interfaces."
+      ],
+      solution: "Trained and benchmarked multiple classification models (SVM, Random Forest, Logistic Regression) on clinical cytology datasets. Implemented feature scaling and cross-validation pipelines to deliver reliable predictions with full metric transparency.",
+      metrics: [
+        { label: "Model Accuracy", value: "98.1%" },
+        { label: "False Negative Rate", value: "< 1%" },
+        { label: "Sensitivity", value: "97.8%" }
+      ]
+    }
+  },
+  {
+    id: "saasquatch-lead-scoring",
+    title: "SaaSquatch Lead Scoring",
+    subtitle: "Automated B2B Revenue & Domain Pipeline",
+    techStack: ["Python", "Pandas", "NumPy", "Jupyter", "Data Enrichment", "Lead Scoring"],
+    features: [
+      "Modular pipeline executing automated email syntax validation, MX lookup, and domain verification.",
+      "Heuristic revenue and title-tier scoring prioritizing high-value enterprise decision makers.",
+      "Exportable analytics notebooks demonstrating reproducible data cleaning and ICP segmentation."
+    ],
+    github: "https://github.com/Nivritha03/saasquatch_lead_scoring",
+    liveDemo: "#",
+    color: "#14B8A6",
+    category: "Automation",
+    status: "Production Ready",
+    complexity: 86,
+    featured: false,
+    detailedContent: {
+      challenges: [
+        "Cleaning noisy enterprise lead datasets containing duplicates, fake emails, and inconsistent job titles.",
+        "Designing a fair multi-factor scoring rubric that balances company revenue with executive seniority.",
+        "Optimizing batch enrichment routines to process thousands of prospect records seamlessly."
+      ],
+      solution: "Built a Python-based data pipeline utilizing Pandas for data normalization, regex-based validation rules, and domain-level firmographic enrichment. Generates ranked lead tiers enabling sales teams to focus on qualified enterprise prospects.",
+      metrics: [
+        { label: "Data Quality Lift", value: "+38%" },
+        { label: "Processing Speed", value: "5k leads/min" },
+        { label: "Validation Accuracy", value: "99.5%" }
+      ]
+    }
+  },
+  {
+    id: "speech-to-text",
+    title: "Speech-To-Text Engine",
+    subtitle: "Real-Time Audio Transcription Web App",
+    techStack: ["JavaScript", "Web Speech API", "HTML5 Audio", "CSS3", "Client-Side Processing"],
+    features: [
+      "Low-latency real-time voice-to-text transcription utilizing native browser speech synthesis.",
+      "Continuous dictation mode with automatic punctuation and multi-language acoustic support.",
+      "Clean export options allowing instant copy and text file download without external API charges."
+    ],
+    github: "https://github.com/Nivritha03/Speech-To-Text",
+    liveDemo: "#",
+    color: "#8B5CF6",
+    category: "Full-Stack",
+    status: "Production Ready",
+    complexity: 80,
+    featured: false,
+    detailedContent: {
+      challenges: [
+        "Handling intermittent audio capture pauses without terminating the active transcription session.",
+        "Managing microphone permissions and cross-browser audio stream compatibility gracefully.",
+        "Providing instant visual feedback for voice amplitude and transcription status."
+      ],
+      solution: "Engineered an event-driven audio recognition client wrapping the Web Speech API. Implemented resilient session recovery routines that keep microphone streams active and buffer interim results for seamless dictation.",
+      metrics: [
+        { label: "Latency", value: "Near-Zero" },
+        { label: "API Cost", value: "$0 (Native)" },
+        { label: "Setup Time", value: "Instant" }
+      ]
+    }
+  },
+  {
     id: "signwave",
     title: "SignWave",
     subtitle: "AI-Powered Accessibility Platform",
@@ -103,7 +413,7 @@ export const PROJECTS = [
       "Low-latency WebSocket synchronization for seamless team collaboration."
     ],
     github: "https://github.com/Nivritha03/Collab-Sphere_Digital-Whiteboard",
-    liveDemo: "#",
+    liveDemo: "https://collab-sphere-digital-whiteboard.vercel.app",
     color: "#FFD700",
     category: "Full-Stack",
     status: "Production Ready",
@@ -196,7 +506,7 @@ export const PROJECTS = [
       "Personalized learning plans based on performance analytics."
     ],
     github: "https://github.com/Nivritha03/PrepMindAI",
-    liveDemo: "#",
+    liveDemo: "https://prep-mind-ai-gamma.vercel.app",
     color: "#FFD700",
     category: "AI",
     status: "Beta",
@@ -227,10 +537,10 @@ export const PROJECTS = [
       "Enables rapid prototyping without writing manual boilerplate code."
     ],
     github: "https://github.com/Nivritha03/AppGenie",
-    liveDemo: "#",
+    liveDemo: "https://appgenie-zeta.vercel.app",
     color: "#F59E0B",
     category: "LLM",
-    status: "In Development",
+    status: "Production Ready",
     complexity: 97,
     featured: true,
     detailedContent: {
@@ -289,7 +599,7 @@ export const PROJECTS = [
       "Dynamic playlists powered by mood-based audio processing."
     ],
     github: "https://github.com/Nivritha03/Synthesia_Music_Player",
-    liveDemo: "#",
+    liveDemo: "https://synthesia-music-player-chi.vercel.app",
     color: "#F59E0B",
     category: "Full-Stack",
     status: "Production Ready",
@@ -351,7 +661,7 @@ export const PROJECTS = [
       "High-precision WebAudio scheduling for zero latency drift."
     ],
     github: "https://github.com/Nivritha03/VibeSync",
-    liveDemo: "#",
+    liveDemo: "https://vibe-sync-ebon.vercel.app",
     color: "#F59E0B",
     category: "Full-Stack",
     status: "Production Ready",

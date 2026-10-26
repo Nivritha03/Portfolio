@@ -11,7 +11,7 @@ import { Search, LayoutGrid, List } from "lucide-react";
 
 type ProjectType = typeof PROJECTS[0];
 
-const CATEGORIES = ["All", "AI", "Computer Vision", "LLM", "Cloud", "Automation", "Accessibility", "Full-Stack"];
+const CATEGORIES = ["All", "AI", "Machine Learning", "Computer Vision", "LLM", "Cloud", "Automation", "Accessibility", "Full-Stack"];
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
