@@ -47,6 +47,8 @@ export function Navbar() {
       if (targetEl) {
         targetEl.scrollIntoView({ behavior: "smooth" });
         window.history.replaceState(null, "", window.location.pathname);
+      } else {
+        window.location.href = `/${href}`;
       }
     } else {
       window.location.href = href;

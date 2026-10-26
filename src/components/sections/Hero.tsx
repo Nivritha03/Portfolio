@@ -46,7 +46,7 @@ export function Hero() {
   const opacity = useTransform(scrollY, [0, 1000], [1, 0]);
 
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-black">
+    <section id="hero" className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-black">
       {/* 3D Particle Background */}
       <div className="absolute inset-0 z-0 opacity-40">
         <Canvas camera={{ position: [0, 0, 1] }}>
