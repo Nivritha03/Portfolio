@@ -3,18 +3,69 @@
 import { motion } from "framer-motion";
 import { PROJECTS } from "@/constants/projects";
 import { X, ExternalLink, Code2, Activity, BarChart, Server, Play } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 type ProjectType = typeof PROJECTS[0];
 
 export function ProjectModal({ project, onClose }: { project: ProjectType, onClose: () => void }) {
+  const modalRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
+
+    // Focus the modal content container so keypad / arrow keys scroll it immediately
+    const timer = setTimeout(() => {
+      modalRef.current?.focus();
+    }, 50);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      // Handle arrow keys, PageUp, PageDown, Home, End, Space when modal is active
+      if (!modalRef.current) return;
+      const scrollStep = 80;
+      const pageStep = 400;
+
+      switch (e.key) {
+        case "ArrowDown":
+          e.preventDefault();
+          modalRef.current.scrollBy({ top: scrollStep, behavior: "smooth" });
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          modalRef.current.scrollBy({ top: -scrollStep, behavior: "smooth" });
+          break;
+        case "PageDown":
+        case " ":
+          e.preventDefault();
+          modalRef.current.scrollBy({ top: pageStep, behavior: "smooth" });
+          break;
+        case "PageUp":
+          e.preventDefault();
+          modalRef.current.scrollBy({ top: -pageStep, behavior: "smooth" });
+          break;
+        case "Home":
+          e.preventDefault();
+          modalRef.current.scrollTo({ top: 0, behavior: "smooth" });
+          break;
+        case "End":
+          e.preventDefault();
+          modalRef.current.scrollTo({ top: modalRef.current.scrollHeight, behavior: "smooth" });
+          break;
+      }
     };
-  }, []);
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "auto";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
 
   return (
     <motion.div 
@@ -26,16 +77,18 @@ export function ProjectModal({ project, onClose }: { project: ProjectType, onClo
       <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" onClick={onClose} />
       
       <motion.div 
+        ref={modalRef}
+        tabIndex={0}
         initial={{ y: 50, opacity: 0, scale: 0.95 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         exit={{ y: 20, opacity: 0, scale: 0.95 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-[#060606] border border-white/10 rounded-3xl shadow-2xl flex flex-col"
+        className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-[#060606] border border-white/10 rounded-3xl shadow-2xl flex flex-col focus:outline-none"
         style={{ '--project-color': project.color } as React.CSSProperties}
       >
         <button 
           onClick={onClose}
-          className="sticky top-6 left-full -translate-x-14 z-50 p-3 rounded-full bg-black/50 border border-white/10 text-gray-400 hover:text-white backdrop-blur-md transition-all hover:bg-white/10 hover:rotate-90"
+          className="sticky top-6 left-full -translate-x-14 z-50 p-3 rounded-full bg-black/50 border border-white/10 text-gray-400 hover:text-white backdrop-blur-md transition-all hover:bg-white/10 hover:rotate-90 focus:outline-none"
         >
           <X className="w-6 h-6" />
         </button>
