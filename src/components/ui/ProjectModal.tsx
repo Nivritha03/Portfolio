@@ -114,7 +114,7 @@ export function ProjectModal({ project, onClose }: { project: ProjectType, onClo
         </button>
 
         {/* Hero Image / Banner */}
-        <div className="relative w-full h-[40vh] min-h-[300px] bg-gradient-to-br from-[#111] to-[#0a0a0a] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full min-h-[340px] py-16 bg-gradient-to-br from-[#111] to-[#0a0a0a] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--project-color),_transparent_70%)] opacity-20" />
           
           <div className="relative z-10 text-center px-6">
@@ -127,7 +127,10 @@ export function ProjectModal({ project, onClose }: { project: ProjectType, onClo
                 {project.category} // {project.status}
               </div>
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">{project.title}</h1>
-              <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto">{project.subtitle}</p>
+              <p className="text-xl md:text-2xl text-[var(--project-color)] max-w-2xl mx-auto mb-4 font-mono">{project.subtitle}</p>
+              <p className="text-sm md:text-base text-gray-300 max-w-3xl mx-auto leading-relaxed bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+                {project.features.join(" ")}
+              </p>
             </motion.div>
           </div>
         </div>

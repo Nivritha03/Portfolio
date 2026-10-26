@@ -140,7 +140,7 @@ export function PremiumProjectCard({ project, onClick, featured }: { project: Pr
           
           <div className="flex items-center gap-4 justify-between w-full">
             <span className="text-sm font-medium text-[var(--project-color)] flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-              View Case Study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
 
             <div className="flex items-center gap-2">
