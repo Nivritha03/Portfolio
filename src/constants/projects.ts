@@ -247,7 +247,7 @@ export const PROJECTS = [
     "github": "https://github.com/Nivritha03/VibeSync",
     "liveDemo": "https://vibe-sync-ebon.vercel.app",
     "color": "#F59E0B",
-    "category": "AI / ML",
+    "category": "Computer Vision",
     "status": "Production Ready",
     "complexity": 91,
     "featured": false,

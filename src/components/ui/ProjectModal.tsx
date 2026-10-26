@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PROJECTS } from "@/constants/projects";
-import { X, ExternalLink, Code2, Activity, BarChart, Server, Play } from "lucide-react";
+import { X, ExternalLink, Code2, Activity, BarChart, Server, Play, Layers } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useLenis } from "lenis/react";
 
@@ -157,6 +157,31 @@ export function ProjectModal({ project, onClose }: { project: ProjectType, onClo
             {/* Left Column (Main Content) */}
             <div className="lg:col-span-2 space-y-12">
               
+              {/* Key Features / Overview */}
+              {project.features && project.features.length > 0 && (
+                <motion.section
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.35 }}
+                >
+                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <Layers className="w-6 h-6 text-[var(--project-color)]" />
+                    Key Capabilities & Features
+                  </h3>
+                  <div className="space-y-3">
+                    {project.features.map((feature: string, idx: number) => (
+                      <div 
+                        key={idx} 
+                        className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-colors"
+                      >
+                        <span className="text-[var(--project-color)] font-mono text-base font-bold shrink-0 mt-0.5">0{idx + 1}.</span>
+                        <p className="text-gray-200 text-base leading-relaxed">{feature}</p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.section>
+              )}
+
               <motion.section
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
